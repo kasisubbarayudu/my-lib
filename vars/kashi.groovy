@@ -1,7 +1,7 @@
 import java.io.*
 import groovy.io.*
 
-
+@NonCPS
 def call(){
    def dir = new File(pwd())
    
