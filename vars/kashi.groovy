@@ -16,7 +16,9 @@ def call(){
    })
    println currentBuild.changeSets
    println currentBuild.changeSets.getClass().getMethods()
-   for (change in currentBuild.changeSets){
-      println change.items
-   }
+   println "Fileds: " + currentBuild.changeSets.getClass().getDeclaredFields()
+   println "Props: " + currentBuild.changeSets.getClass().getProperties()
+//   for (change in currentBuild.changeSets){
+ //     println change.items
+  // }
 }

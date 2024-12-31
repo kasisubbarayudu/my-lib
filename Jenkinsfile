@@ -7,7 +7,7 @@ pipeline{
                 steps{
                     script{
                          kashi()
-                         println currentBuild.changeSets
+                         println "Pipelines: " + currentBuild.changeSets
                     }
                 }
             }
