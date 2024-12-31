@@ -15,13 +15,14 @@ def call(){
         })
    })
    println currentBuild.changeSets
-   for (change in currentBuild.changeSets){
-    def entries = change.items
-    for (entry in entries){ 
-      echo "${entry.commitId} by ${entry.author} on ${new Date(entry.timestamp)}: ${entry.msg}"
-      for (file in entry.affectedFiles){
-         echo "${file.editType.name} - ${file.path}"
-      }
-    }
- }
+   println currentBuild.changeSets.collectMany{it.items.collectMany {it.affectedPaths}}
+//   for (change in currentBuild.changeSets){
+//    def entries = change.items
+//    for (entry in entries){ 
+//      echo "${entry.commitId} by ${entry.author} on ${new Date(entry.timestamp)}: ${entry.msg}"
+//      for (file in entry.affectedFiles){
+//         echo "${file.editType.name} - ${file.path}"
+//      }
+//    }
+// }
 }
