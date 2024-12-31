@@ -16,6 +16,6 @@ def call(){
    })
    println currentBuild.changeSets
    for (change in currentBuild.changeSets){
-      println change
+      println change.items
    }
 }
