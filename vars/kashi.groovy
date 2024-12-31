@@ -14,8 +14,9 @@ def call(){
         // println "File name is : ${file.name} ${file.isDirectory()}"
         })
    })
-   println currentBuild.changeSets
-   println currentBuild.changeSets.collectMany{it.items.collectMany {it.affectedPaths}}
+   println currentBuild.changeSets.properties.each{println it}
+   println currentBuild.changeSets.metaClass.methods*.name.sort().unique()
+//   println currentBuild.changeSets.collectMany{it.items.collectMany {it.affectedPaths}}
 //   for (change in currentBuild.changeSets){
 //    def entries = change.items
 //    for (entry in entries){ 
