@@ -11,5 +11,15 @@ pipeline{
                     }
                 }
             }
+            stage("Changeset"){
+             when{
+               changeset "**/README.md"
+             }
+             steps{
+               script{
+                  println "The change was triggered.."
+               }
+             }
+           }
         }
     }
