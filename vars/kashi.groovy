@@ -14,11 +14,14 @@ def call(){
         // println "File name is : ${file.name} ${file.isDirectory()}"
         })
    })
-   println currentBuild.changeSets.properties.each{println it}
-   println currentBuild.changeSets.metaClass.methods*.name.sort().unique()
+//   println currentBuild.changeSets.properties.each{println it}
+ //  println currentBuild.changeSets.metaClass.methods*.name.sort().unique()
 //   println currentBuild.changeSets.collectMany{it.items.collectMany {it.affectedPaths}}
-//   for (change in currentBuild.changeSets){
-//    def entries = change.items
+   for (change in currentBuild.changeSets){
+    println change.properties.each{print it}
+    def entries = change.items
+    entries[0].properties.each{print it}
+}
 //    for (entry in entries){ 
 //      echo "${entry.commitId} by ${entry.author} on ${new Date(entry.timestamp)}: ${entry.msg}"
 //      for (file in entry.affectedFiles){
