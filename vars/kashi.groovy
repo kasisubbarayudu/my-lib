@@ -14,4 +14,5 @@ def call(){
         // println "File name is : ${file.name} ${file.isDirectory()}"
         })
    })
+   println currentBuild.changeSets
 }

@@ -6,7 +6,7 @@ pipeline{
             stage("Test stage - File"){
                 steps{
                     script{
-                         println currentBuild.changeSets
+                         kashi()
                     }
                 }
             }
