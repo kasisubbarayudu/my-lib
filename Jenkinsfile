@@ -8,6 +8,7 @@ pipeline{
                     script{
                          kashi()
                          println "This statement has been added to trigger the changeset"
+                         println "New print..."
                     }
                 }
             }
