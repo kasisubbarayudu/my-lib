@@ -15,6 +15,7 @@ def call(){
         })
    })
    println currentBuild.changeSets
+   println currentBuild.changesets.getClass().getMethods()
    for (change in currentBuild.changeSets){
       println change.items
    }
