@@ -15,10 +15,13 @@ def call(){
         })
    })
    println currentBuild.changeSets
-   println currentBuild.changeSets.getClass().getMethods()
-   println "Fileds: " + currentBuild.changeSets.getClass().getDeclaredFields()
-   println "Props: " + currentBuild.changeSets.getClass().getProperties()
-//   for (change in currentBuild.changeSets){
- //     println change.items
-  // }
+   for (change in currentBuild.changeSets){
+    def entries = change.items
+    echo "${entry.commitId} by ${entry.author} on ${new Date(entry.timestamp)}: ${entry.msg}"
+    for (entry in entries){ 
+      for (file in entry.affectedFiles){
+         echo "${file.editType.name} - ${file.path}"
+      }
+    }
+ }
 }
